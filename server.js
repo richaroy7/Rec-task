@@ -8,13 +8,14 @@ mongoose.connect('mongodb://localhost/rec',{ useNewUrlParser: true,
     useUnifiedTopology: true
 })
 
+app.use(express.urlencoded({ extended: false}))
 //all routes in the postRouter will be at end of /posts
-app.use('/posts',postRouter)
+
 
 //to send html code
 app.set('view engine','ejs')
 
-app.use(express.urlencoded({ extended: false}))
+
 //creating a route 
 app.get('/',(req,res)=>{
     //res.send('hey!')
@@ -38,5 +39,6 @@ app.get('/',(req,res)=>{
 ]
     res.render('posts/index',{ posts : posts })//to render the html file+posts passed will be available in ejs
 })
+app.use('/posts',postRouter)
 
 app.listen(5000)
