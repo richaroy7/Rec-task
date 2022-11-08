@@ -87,11 +87,10 @@
                 <h7 class="card-subtitle ">Added by-
                     <%= post.name %>
                 </h7>
-                <h7>Date:</h7>
-                <h7 class="card-subtitle text-muted mb-2">
-                    <%= post.createdAt.toLocaleDateString() %>
-                </h7>
-            </div>
+              </div>
+              <div style=" margin-left: 10px; margin-bottom: 20px;">
+                <a href="posts/<%= post.id %>" class="btn btn-primary">Read</a>
+              </div>
          </div>
        <% }) %>
         </br>

@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Article = require('./models/post')
+const Post = require('./models/post')
 
 const postRouter = require('./routes/posts')
 const app=express()
@@ -17,44 +17,12 @@ app.set('view engine','ejs')
 
 
 //creating a route 
-app.get('/', (req,res)=>{
+app.get('/', async (req,res)=>{
 
     // const posts = await post.find()
     //res.send('hey!')
 
-    const posts =[{
-        title: 'Company name',
-        subtitle: 'kind of job',
-        name : 'name',
-        createdAt: new Date(),
-        description: 'Experience'
-
-    },
-    {
-        title: 'Adobe',
-        subtitle: 'Internship',
-        name : 'Priya Pasumarthi',
-        createdAt: new Date(),
-        description: 'Experience'
-
-    },
-    {
-        title: 'Microsoft',
-        subtitle: 'Full Time',
-        name : 'Ashish Kumar',
-        createdAt: new Date(),
-        description: 'Experience'
-
-    },
-    {
-        title: 'Microsoft',
-        subtitle: 'Full Time',
-        name : 'Ashish Kumar',
-        createdAt: new Date(),
-        description: 'Experience'
-
-    },
-]
+    const posts = await Post.find().sort({ date: 'desc'})
 
     res.render('posts/index',{ posts : posts })//to render the html file+posts passed will be available in ejs
 })
