@@ -13,16 +13,25 @@
         <img id="logoREC" src="https://www.recursionnitd.in/static/image/Loader.jpeg" style="max-width:50px; padding-bottom: 4px; padding-left: 8px" alt="logo"><span><strong>REC</strong>ursion</span><span style="padding-right: 3vw">About</span>
         </nav>
        
-    
-    <div class="container">
-       
-     <h1><%= post.title %></h1>
-    </div>
-    
+
+        <div class="card" style="width: 18rem; padding: 20px 12px; margin-left: 30px; margin-top:30px;">
+            <div class="card-body" >
+                <div style="display: flex; flex-direction: row;">
+              <h5 class="card-title"><%= post.title %></h5><h5 class="text-muted">(<%= post.subtitle %>)</h5>
+            </div>
+              <h6 class="card-title">By:<%= post.name %></h6>
+              <p class="card-text"><%= post.description %></p>
+              
+            </div>
+          </div>
+   
+    <div style="display:flex; flex-direction:row;">
+        <div style="margin-top: 30px; margin-left: 30px;">
     <a href="/" class="btn btn-secondary">All Posts</a>
+</div>
+<div style="margin-top: 30px; margin-left: 20px;">
     <a href="/posts/edit/<%= post.id %>" class="btn btn-info">Edit</a>
-    <div>
-        <%= post.description %>
+</div>
     </div>
    
 </body>

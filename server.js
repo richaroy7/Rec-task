@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-
+const Article = require('./models/post')
 
 const postRouter = require('./routes/posts')
 const app=express()
@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/rec',{ useNewUrlParser: true,
 })
 
 app.use(express.urlencoded({ extended: false}))
-//all routes in the postRouter will be at end of /posts
+
 
 
 //to send html code
@@ -17,7 +17,9 @@ app.set('view engine','ejs')
 
 
 //creating a route 
-app.get('/',(req,res)=>{
+app.get('/', (req,res)=>{
+
+    // const posts = await post.find()
     //res.send('hey!')
 
     const posts =[{
@@ -35,8 +37,25 @@ app.get('/',(req,res)=>{
         createdAt: new Date(),
         description: 'Experience'
 
-    }
+    },
+    {
+        title: 'Microsoft',
+        subtitle: 'Full Time',
+        name : 'Ashish Kumar',
+        createdAt: new Date(),
+        description: 'Experience'
+
+    },
+    {
+        title: 'Microsoft',
+        subtitle: 'Full Time',
+        name : 'Ashish Kumar',
+        createdAt: new Date(),
+        description: 'Experience'
+
+    },
 ]
+
     res.render('posts/index',{ posts : posts })//to render the html file+posts passed will be available in ejs
 })
 app.use('/posts',postRouter)

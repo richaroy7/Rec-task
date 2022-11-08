@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Interviews</title>
+    <link rel="shortcut icon" href="/favicon.jpeg" type="image/x-icon">
+    <style>
+        body{
+            background-color: rgb(197, 228, 239);
+        }
+        h1{
+            color:rgb(10, 30, 66);
+        }
+        .footer{
+    padding: 10px 0;
+    background-color: rgb(10, 30, 66);
+  }
+  .footer .social{
+    text-align: center;
+    padding-bottom: 20px;
+    color:antiquewhite;
+  }
+  .footer .social a {
+    font-size: 24px;
+    color: inherit;
+    margin: 0 8px;
+    width: 40px;
+    height: 10px;
+    line-height: 38px;
+    display: inline-block;
+    opacity: 0.75;
+    text-align:center;
+  }
+  .footer .social a:hover{
+    opacity: 0.98;
+  }
+  .footer .copyright{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    color: #aaa;
+  }
+  ::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(186, 186, 186); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a2a1a1; 
+}
+      
+    </style>
 </head>
 
 <body>
@@ -15,8 +76,8 @@
     </nav>
    
     <div class="container">
-        <h1 class="mb-4">Interview Experiences</h1>
-        <a href="/posts/new" class="btn btn-success">New article</a>
+        <h1 class="mb-4 mt-2">Interview Experiences</h1>
+        <a href="/posts/new" class="btn btn-primary" style="background-color:rgb(10,30,66)">New article</a>
         <!-- cards -->
         <% posts.forEach(post =>{ %>
          <div class="card mt-4">
@@ -33,8 +94,21 @@
             </div>
          </div>
        <% }) %>
-
+        </br>
 
     </div>
+    
+
+    <section class="footer">
+        <div class="social">
+          <a href="https://www.instagram.com/recursion.nitd/"><i class="fab fa-instagram"></i> </a>
+          <a href="https://www.facebook.com/groups/recursion.nit"><i class="fab fa-facebook"></i> </a>
+          <a href="https://www.linkedin.com/company/recursion-nit-durgapur-programming-community/"><i class="fab fa-linkedin"></i> </a>
+          <p class="copyright">
+        <strong>REC</strong>ursion
+          </p>
+        </div>
+      </section>
+
 </body>
 </html>

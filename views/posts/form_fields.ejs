@@ -1,18 +1,18 @@
  <div class="form-group">
     <label for="title">Company </label>
-    <input required type="text" name="title" id="title" class="form-control">
+    <input required value="<%= post.title %>" type="text" name="title" id="title" class="form-control">
 </div>
 <div class="form-group">
     <label for="subtitle">Internship/Full Time</label>
-    <input required type="text" name="subtitle" id="subtitle" class="form-control">
+    <input required value="<%= post.subtitle %>" type="text" name="subtitle" id="subtitle" class="form-control">
 </div>
 <div class="form-group">
     <label for="name">Name</label>
-    <input required type="text" name="name" id="name" class="form-control">
+    <input required value="<%= post.name %>" type="text" name="name" id="name" class="form-control">
 </div>
 <div class="form-group">
     <label for="Description">Description</label>
-    <textarea name="description" id="description" class="form-control"></textarea>
+    <textarea name="description" id="description" class="form-control"><%= post.description %></textarea>
 </div>
 </br>
 <a href="/" class="btn btn-secondary">Cancel</a>
