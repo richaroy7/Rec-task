@@ -35,6 +35,21 @@ app.get('/', async (req,res)=>{
     res.render('posts/index',{ posts : posts })//to render the html file+posts passed as object in key value pair will be available in ejs
 })
 
+app.get('/intern', async (req,res)=>{
+
+    var query = { subtitle: "Internship" };  
+    const posts = await Post.find(query).sort({ date: 'desc'})
+
+    res.render('posts/index',{ posts : posts })
+})
+
+app.get('/full', async (req,res)=>{
+
+    var query = { subtitle: "Full-time" };  
+    const posts = await Post.find(query).sort({ date: 'desc'})
+
+    res.render('posts/index',{ posts : posts })
+})
 //mounting the postrouter
 app.use('/posts',postRouter)
 

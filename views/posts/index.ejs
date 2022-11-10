@@ -65,19 +65,90 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #a2a1a1; 
+
 }
+.dropdown_button {
+            background-color: #0979ad;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            width: 10rem;
+            font-family: montserrat;
+            border: 1px solid #ffffff;
+        }
+ 
+        .filters {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 10rem;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+ 
+        .filters li {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            list-style: none;
+            background-color: rgb(47, 47, 47);
+            font-family: montserrat;
+            border: 1px solid white;
+        }
+ 
+        .filters li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+        }
+ 
+        .filters li:hover {
+            background-color: #0979ad;
+            color: white;
+        }
+        .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
       
     </style>
 </head>
 
 <body>
-   <nav class="navbar navbar-light " style="background-color: #f3f6fa; box-shadow: 0px 2px 8px 1px rgb(166, 166, 166);"> 
+   <nav class="navbar  navbar-light" id="navbar" style="background-color: #f3f6fa; box-shadow: 0px 2px 8px 1px rgb(166, 166, 166); z-index:100;"> 
     <img id="logoREC" src="https://www.recursionnitd.in/static/image/Loader.jpeg" style="max-width:50px; padding-bottom: 4px; padding-left: 8px" alt="logo"><span><strong>REC</strong>ursion</span><span style="padding-right: 3vw">About</span>
     </nav>
    
-    <div class="container">
+    <div class="container" style="margin-top:70px;">
         <h1 class="mb-4 mt-2" style="text-align:center; font-style:italic;">Interview Experiences</h1>
-        <a href="/posts/new" class="btn btn-outline-primary btn-sm" style="height: 3rem; width: 10rem; padding: 12px 20px 8px ;">Add an experience</a>
+        <div style="display:flex; flex-direction:row;">
+        <a href="/posts/new" class="btn btn-outline-primary btn-sm" style="height: 3rem; width: 10rem; padding: 12px 20px 8px ; margin-right: 20px;">Add an experience</a>
+     
+   
+        <div class="dropdown_list">
+          <button class="dropdown_button" style="height: 3rem ;width: 10rem; padding: 12px 20px 8px ;"
+              onclick="show_list()">
+              Filter
+          </button>
+
+          <div id="filters_id" class="filters">
+              <li><a href="/full">Full-time</a></li>
+              <li><a href="/intern">Internship</a></li>
+              <li><a href="/">All</a></li>
+          </div>
+      </div>
+    </div>
+
+
         <!-- cards -->
         <% posts.forEach(post =>{ %>
          <div class="card mt-4">
@@ -103,7 +174,34 @@
         </br>
 
     </div>
-    
+    <script>
+      function show_list() {
+          var filters = document.getElementById("filters_id");
+
+          if (filters.style.display == "block") {
+              filters.style.display = "none";
+          } else {
+              filters.style.display = "block";
+          }
+      }
+      window.onclick = function (event) {
+          if (!event.target.matches('.dropdown_button')) {
+              document.getElementById('filters_id')
+                  .style.display = "none";
+          }
+      }   
+      window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+  </script>
 
     <section class="footer">
         <div class="social">
