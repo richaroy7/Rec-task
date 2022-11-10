@@ -1,5 +1,6 @@
 const { resolveInclude } = require('ejs')
 const express = require('express')
+const { findById } = require('./../models/post')
 
 //creating a router which will handle all kinds of requests
 const router = express.Router()
@@ -38,6 +39,24 @@ router.post('/', async (req,res) => {
     
 
 })
+
+router.get('/edit/:id', async (req,res)=>{
+    const post= await Post.findById(req.params.id)
+    res.render('posts/edit',{post : post})
+})
+
+router.put('/:id', async (req, res) => {
+    let post = await Post.findByIdAndUpdate(req.params.id,req.body)
+    
+     try{
+          res.redirect(`/posts/${post.id}`)
+     }catch(e)
+     {
+         console.log(e)
+        res.render('posts/new',{ post: post})
+     }
+ 
+  });
 
 router.delete('/:id', async(req,res)=>{
     await Post.findByIdAndDelete(req.params.id)
