@@ -3,8 +3,14 @@
     <input required value="<%= post.title %>" type="text" name="title" id="title" class="form-control">
 </div>
 <div class="form-group">
-    <label for="subtitle">Internship/Full Time</label>
-    <input required value="<%= post.subtitle %>" type="text" name="subtitle" id="subtitle" class="form-control">
+    <label for="subtitle">Internship/Full-time</label>
+    <!-- <input required value="<%= post.subtitle %>" type="text" name="subtitle" id="subtitle" class="form-control"> -->
+    <div>
+    <input type="radio" value="Internship" id="Internship" name="subtitle">
+    <label for="Internship">Internship</label>
+    <input type="radio" value="Full-time" id="Full-time" name="subtitle">
+    <label for="Full-time">Full-time</label>
+    </div>
 </div>
 <div class="form-group">
     <label for="name">Name</label>

@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
     },
     subtitle:{
         type: String,
+        possibleValues: ['Internship','Full-time'],
         required: true 
     },
     name:{

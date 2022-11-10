@@ -1,5 +1,7 @@
 const { resolveInclude } = require('ejs')
 const express = require('express')
+
+//creating a router which will handle all kinds of requests
 const router = express.Router()
 const Post = require('./../models/post')
 
@@ -8,6 +10,9 @@ const Post = require('./../models/post')
 router.get('/new',(req,res)=>{
     res.render('posts/new',{ post: new Post()})
 })
+
+
+
 router.get('/:id',async (req,res) =>{
     const post = await Post.findById(req.params.id)
     if(post==null)
@@ -32,5 +37,10 @@ router.post('/', async (req,res) => {
 
     
 
+})
+
+router.delete('/:id', async(req,res)=>{
+    await Post.findByIdAndDelete(req.params.id)
+    res.redirect('/')
 })
 module.exports = router
